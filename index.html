@@ -1,0 +1,119 @@
+<html>
+
+<head>
+    <title>Time Table</title>
+    <style>
+        .heading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #4a4e69;
+        }
+
+        table {
+            display: flex;
+            justify-content: center;
+            border-collapse: collapse;
+        }
+
+        th {
+            padding: 15px;
+            background-color: #4a4e69;
+            color: white;
+            border: 2px solid #ddd;
+        }
+
+        .highlight {
+            background-color: #e96565;
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 15px;
+            text-align: center;
+            background-color: #54b9b9;
+            border: 2px solid #ddd;
+        }
+
+        .lab {
+            background-color: #2BAE66FF;
+            color: white;
+        }
+
+        .break {
+            width: 70px;
+            background-color: #f7d6e0;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading">
+        <h2>University of Visvesvaraya College of Engineering (UVCE)</h2>
+        <i>Department of Computer Science and Engineering</i>
+        <h3>B.Tech 2<sup>nd</sup> Year 4<sup>th</sup> semester Information Science And Engineering Tentative Time Table
+        </h3>
+    </div>
+    <table>
+        <tr>
+            <th>Day/Time</th>
+            <th>8:00-8:50</th>
+            <th>8:50-9:40</th>
+            <th>9:40-10:30</th>
+            <th rowspan="7" class="break">Interval from 10:30AM to 11:00AM</th>
+            <th>11:00-11:50</th>
+            <th>11:50-12:40</th>
+            <th>12:40-1:30</th>
+            <th>1:30-2:20</th>
+            <th rowspan="7" class="break">Lunch Break from 2:20PM to 2:40PM</th>
+            <th style="width:200px;">2:40-5:30</th>
+        </tr>
+        <tr>
+            <td class="highlight"><b>Monday</b></td>
+            <td colspan="3" class="lab">DAA Lab</td>
+            <td colspan="2">OS</td>
+            <td colspan="2">DAA</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="highlight"><b>Tuesday</b></td>
+            <td></td>
+            <td colspan="2">Biology</td>
+            <td colspan="2">DAA</td>
+            <td colspan="2">MPMC</td>
+            <td colspan="1" class="lab">MPMC Lab</td>
+        </tr>
+        <tr>
+            <td class="highlight"><b>Wednesday</b></td>
+            <td colspan="3"></td>
+            <td colspan="2">MPMC</td>
+            <td colspan="2">OS</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="highlight"><b>Thursday</b></td>
+            <td colspan="3"></td>
+            <td colspan="2">Maths</td>
+            <td colspan="1">UHV</td>
+            <td colspan="1"></td>
+            <td colspan="1" class="lab">UNIX Lab</td>
+        </tr>
+        <tr>
+            <td class="highlight"><b>Friday</b></td>
+            <td colspan="3"></td>
+            <td colspan="2">Maths</td>
+            <td colspan="2">CICE</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="highlight"><b>Saturday</b></td>
+            <td colspan="3" class="lab">WB Lab</td>
+            <td colspan="4"></td>
+            <td colspan="4"></td>
+        </tr>
+    </table>
+</body>
+
+</html>
