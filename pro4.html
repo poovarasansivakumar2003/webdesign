@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>Three Frames Layout</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+        }
+
+        #left-frame {
+            background-color: #bce0ff;
+            width: 20%;
+            padding: 20px;
+        }
+
+        #center-frame {
+            background-color: pink;
+            width: 60%;
+            padding: 20px;
+        }
+
+        #right-frame {
+            background-color: #bce0ff;
+            width: 20%;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="left-frame">
+       <h2>Contents</h2>
+       <ul>
+           <li><a href="#intro">Introduction</a></li>
+           <li><a href="#main-section">Main Section</a></li>
+           <li><a href="#conclusion">Conclusion</a></li>
+       </ul>
+    </div>
+
+    <div id="center-frame">
+        <h1>Body of the Page</h1>
+        <h2 id="intro">Introduction</h2>
+        <p>This section introduces the topic of the website...</p>
+
+        <h2 id="main-section">Main Section</h2>
+        <p>This is the main content area of the page. It holds the bulk of the information...</p>
+
+        <h2 id="conclusion">Conclusion</h2>
+        <p>The conclusion summarizes the key points discussed on the website...</p>
+    </div>
+
+    <div id="right-frame">
+        <h2>Remarks</h2>
+        <p>Additional remarks or notes can be placed here. This area is intended for side content like comments or summaries.</p>
+    </div>
+</body>
+
+</html>
