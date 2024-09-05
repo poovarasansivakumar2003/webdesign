@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <title>Format Number with Commas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1rem;
+            width: 200px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Format Number with Commas</h1>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <button onclick="formatNumber()">Format Number</button>
+    <div id="result"></div>
+    <script>
+        function formatNumberWithCommas(number) {
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        function formatNumber() {
+            const numberInput = document.getElementById('numberInput').value;
+            const resultElement = document.getElementById('result');
+            if (!numberInput) {
+                resultElement.innerHTML = "Please enter a valid number.";
+                return;
+            }
+            const formattedNumber = formatNumberWithCommas(numberInput);
+            resultElement.innerHTML = `Formatted Number: ${formattedNumber}`;
+        }
+    </script>
+</body>
+
+</html>
