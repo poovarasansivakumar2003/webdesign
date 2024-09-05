@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Check First Character</title>
+</head>
+<body>
+    <script>
+        function isFirstCharUpperCase(inputString) {
+            if (typeof inputString !== 'string' || inputString.length === 0) {
+                return false;
+            }
+            const firstChar = inputString.charAt(0);
+            return firstChar === firstChar.toUpperCase();
+        }
+        const userString = prompt("Enter a string:");
+        const result = isFirstCharUpperCase(userString);
+        if (result) {
+            document.write(`The first character of "${userString}" is uppercase.`);
+        } else {
+            document.write(`The first character of "${userString}" is not uppercase.`);
+        }
+    </script>
+</body>
+</html>
