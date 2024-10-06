@@ -80,10 +80,13 @@ After making the changes to php.ini and sendmail.ini, restart Apache through the
 ```
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $to = "recipient@example.com"; // Replace with the recipient's email address
+    $to = "example@gmail.com"; // Replace with the recipient's email address
     $subject = "Test Email";
     $message = "This is a test email sent from a PHP script.";
-    $headers = "From: sender@example.com"; // Replace with the sender's email address
+     // Set the From header and other optional headers
+    $headers = "From: Your Name <your-email@example.com>" . "\r\n" .
+               "Reply-To: example@gmail.com" . "\r\n" .
+               "X-Mailer: PHP/" . phpversion();
 
     if (mail($to, $subject, $message, $headers)) {
         echo "Email sent successfully!";
@@ -104,6 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </body>
 </html>
+
 ```
 
 <li>Save the file in the htdocs folder.</li>
