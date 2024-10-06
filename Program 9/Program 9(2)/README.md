@@ -17,18 +17,15 @@ Make sure XAMPP is installed on your system. You can download it from the [offic
 
 PHP uses the mail() function to send emails. To make it work on XAMPP, you'll need to configure the php.ini file to use a mail server.
 
-<ol>
-  <li>Locate the php.ini file:
-    
+1. Locate the php.ini file:
+
     • Open the XAMPP Control Panel.
     
     • Click on "Config" next to Apache, then select "php.ini."
     
     • This will open the php.ini file in your default text editor.
-  </li>
-  <li>Edit php.ini settings: Look for the following line and update it as needed:</li>
-</ol>
 
+2. Edit php.ini settings: Look for the following line and update it as needed:
 
 ```
 [mail function]
@@ -46,11 +43,8 @@ sendmail_path = "\"C:\xampp\sendmail\sendmail.exe\" -t"
 Save the file after making these changes.
 
 #### 4. Configure sendmail.ini
-
-<ol>
-  <li>Locate sendmail.ini: Navigate to the file `C:\xampp\sendmail\sendmail.ini` in File Explorer.</li>
-  <li>Edit sendmail.ini: Open sendmail.ini and find the following section:</li>
-</ol> 
+  1. Locate sendmail.ini: Navigate to the file `C:\xampp\sendmail\sendmail.ini` in File Explorer.
+  2. Edit sendmail.ini: Open sendmail.ini and find the following section:
 
 ```
 smtp_server=smtp.gmail.com
@@ -60,7 +54,7 @@ auth_username=<--your gmail id-->
 auth_password=<--Follow step 5 to get password-->
 hostname=localhost
 ```
-Save the file after making these changes.
+3. Save the file after making these changes.
 
 #### 5.Create an App Password for Gmail
 [Click here and follow steps to get app password](https://itsupport.umd.edu/itsupport?id=kb_article_view&sysparm_article=KB0015112)
@@ -70,12 +64,11 @@ Save the file after making these changes.
 After making the changes to php.ini and sendmail.ini, restart Apache through the XAMPP Control Panel to apply the changes.
 
 #### 7. Create Your PHP Script
-<ol>
-  <li>
-    Create a PHP file (e.g., send_email.php) in the htdocs folder of XAMPP.
-    You can navigate to can htdocs folder through path given `C:\xampp\htdocs\`
-  </li>
-  <li>>Add the code you shared:</li>
+
+1. Create a PHP file (e.g., send_email.php) in the htdocs folder of XAMPP.
+   You can navigate to htdocs folder through path given `C:\xampp\htdocs\`
+
+2. Add the code you shared:
   
 ```
 <?php
@@ -109,9 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </html>
 
 ```
-
-<li>Save the file in the htdocs folder.</li>
-</ol>
+3. Save the file in the htdocs folder.
 
 #### 8. Test the Script
 Open your browser.
