@@ -1,88 +1,153 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <style>
         body {
             margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            padding: 20px;
         }
 
-        div {
+        h1 {
+            font-size: 1.5rem;
+            margin: 0 0 10px;
+            color: #555;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-around;
-            gap: 50px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        button {
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card button {
             cursor: pointer;
             font-size: 16px;
-            padding: 5px 20px;
-            background-color: rgb(235, 235, 228);
-            border: 2px solid rgb(175, 169, 156);
+            padding: 10px 15px;
+            margin: 10px 0;
+            background-color: #007BFF;
+            color: white;
+            border: none;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: #0056b3;
+        }
+
+        .card a {
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.2rem;
+            }
+
+            .card button {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div>
-        <h1>Program 1</h1>
-        <a href="Program 1/index.html"><button>Program 1 Website</button></a>
-        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%201/index.html"><button>Program
-                1 Code</button></a>
-    </div>
-    <div>
-        <h1>Program 2</h1>
-        <a href="Program 2/index.html"><button>Program 2 Website</button></a>
-        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%202/index.html"><button>Program
-                2 Code</button></a>
-    </div>
-    <div>
-        <h1>Program 3</h1>
-        <a href="Program 3/index.html"><button>Program 3 Website</button></a>
-        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%203/index.html"><button>Program
-                3 Code</button></a>
-    </div>
-    <div>
-        <h1>Program 4</h1>
-        <a href="Program 4/index.html"><button>Program 4 Website</button></a>
-        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%204/index.html"><button>Program
-                4 Code</button></a>
-    </div>
-    <div>
-        <h1>Program 5</h1>
-        <a href="Program 5/index.html"><button>Program 5 Website</button></a>
-        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%205/index.html"><button>Program
-                5 Code</button></a>
-    </div>
-    <div>
-        <h1>Program 6</h1>
-        <a href="Program 6/index.html"><button>Program 6 Website</button></a>
-        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%206/index.html"><button>Program
-                6 Code</button></a>
-    </div>
-    <div>
-        <h1>Program 7</h1>
-        <a href="Program 7/index.html"><button>Program 7 Website</button></a>
-        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%207/index.html"><button>Program
-                7 Code</button></a>
-    </div>
-    <div>
-        <h1>Program 8</h1>
-        <a href="Program 8/index.html"><button>Program 8 Website</button></a>
-        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%208/index.html"><button>Program
-                8 Code</button></a>
-    </div>
-    <div>
-        <h1>Program 9</h1>
-        <a href="Program 9/index.html"><button>Program 9 Website</button></a>
-        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%209/index.html"><button>Program
-                9 Code</button></a>
+    <h1>Programs</h1>
+    <div class="container">
+        <div class="card">
+            <h1>Program 1</h1>
+            <a href="Program 1/index.html"><button>Program 1 Website</button></a>
+            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%201/index.html">
+                <button>Program 1 Code</button>
+            </a>
+        </div>
+        <div class="card">
+            <h1>Program 2</h1>
+            <a href="Program 2/index.html"><button>Program 2 Website</button></a>
+            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%202/index.html">
+                <button>Program 2 Code</button>
+            </a>
+        </div>
+        <div class="card">
+            <h1>Program 3</h1>
+            <a href="Program 3/index.html"><button>Program 3 Website</button></a>
+            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%203/index.html">
+                <button>Program 3 Code</button>
+            </a>
+        </div>
+        <div class="card">
+            <h1>Program 4</h1>
+            <a href="Program 4/index.html"><button>Program 4 Website</button></a>
+            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%204/index.html">
+                <button>Program 4 Code</button>
+            </a>
+        </div>
+        <div class="card">
+            <h1>Program 5</h1>
+            <a href="Program 5/index.html"><button>Program 5 Website</button></a>
+            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%205/index.html">
+                <button>Program 5 Code</button>
+            </a>
+        </div>
+        <div class="card">
+            <h1>Program 6</h1>
+            <a href="Program 6/index.html"><button>Program 6 Website</button></a>
+            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%206/index.html">
+                <button>Program 6 Code</button>
+            </a>
+        </div>
+        <div class="card">
+            <h1>Program 7</h1>
+            <a href="Program 7/index.html"><button>Program 7 Website</button></a>
+            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%207/index.html">
+                <button>Program 7 Code</button>
+            </a>
+        </div>
+        <div class="card">
+            <h1>Program 8</h1>
+            <a href="Program 8/index.html"><button>Program 8 Website</button></a>
+            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%208/index.html">
+                <button>Program 8 Code</button>
+            </a>
+        </div>
+        <div class="card">
+            <h1>Program 9</h1>
+            <a href="Program 9/index.html"><button>Program 9 Website</button></a>
+            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%209/index.html">
+                <button>Program 9 Code</button>
+            </a>
+        </div>
     </div>
 </body>
 
