@@ -1,44 +1,274 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <title>Program 9</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 9 - Subprograms</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
+        :root {
+            --primary: #4361ee;
+            --primary-light: #4895ef;
+            --dark: #212121;
+            --dark-light: #303030;
+            --light: #f8f9fa;
+            --gray: #e9ecef;
+            --success: #4cc9f0;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 1rem;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--success) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .subtitle {
+            color: var(--dark-light);
+            font-weight: 400;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            margin-bottom: 2rem;
             display: flex;
             flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-banner {
+            background: linear-gradient(45deg, var(--primary) 0%, var(--success) 100%);
+            height: 100px;
+            display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        div {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            gap: 50px;
+        .card-label {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        button {
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .card-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--light);
+            color: var(--dark);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
             cursor: pointer;
-            font-size: 16px;
-            padding: 5px 20px;
-            background-color: rgb(235, 235, 228);
-            border: 2px solid rgb(175, 169, 156);
-            border-radius: 5px;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--gray);
+            color: var(--dark);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--primary-light);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            color: var(--dark-light);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+
+            .card-banner {
+                height: 80px;
+            }
+
+            .card-label {
+                font-size: 2rem;
+            }
+
+            .card-content {
+                padding: 1.2rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.2rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div>
-        <h1>Program 9(1)</h1>
-        <a href="Program 9(1)/index.html"><button>Program 9(1) Website</button></a>
-        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%209/Program%209(1)/index.html"><button>Program 9(1) Code</button></a>
+    <div class="container">
+        <a href="../index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Programs
+        </a>
+
+        <header>
+            <h1 class="title">Program 9</h1>
+            <p class="subtitle">Collection of subprograms for Program 9</p>
+        </header>
+
+        <!-- Program 9(1) -->
+        <div class="card">
+            <div class="card-banner">
+                <div class="card-label">9.1</div>
+            </div>
+            <div class="card-content">
+                <h2 class="card-title">Program 9(1)</h2>
+                <div class="btn-group">
+                    <a href="Program 9(1)/index.html" class="btn btn-primary">
+                        <i class="fas fa-globe"></i> View Website
+                    </a>
+                    <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%209/Program%209(1)/index.html" class="btn btn-secondary">
+                        <i class="fas fa-code"></i> View Code
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program 9(2) -->
+        <div class="card">
+            <div class="card-banner">
+                <div class="card-label">9.2</div>
+            </div>
+            <div class="card-content">
+                <h2 class="card-title">Program 9(2)</h2>
+                <div class="btn-group">
+                    <a href="Program 9(2)/index.html" class="btn btn-primary">
+                        <i class="fas fa-globe"></i> View Website
+                    </a>
+                    <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%209/Program%209(2)/index.html" class="btn btn-secondary">
+                        <i class="fas fa-code"></i> View Code
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <h1>Program 9(2)</h1>
-        <a href="Program 9(2)/index.html"><button>Program 9(2) Website</button></a>
-        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%209/Program%209(2)/index.html"><button>Program
-                9(2) Code</button></a>
-    </div>
+
+    <footer>
+        <p>&copy; 2025 Program Portfolio. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>
