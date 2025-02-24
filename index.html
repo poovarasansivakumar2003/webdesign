@@ -4,151 +4,380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Program Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
+        :root {
+            --primary: #4361ee;
+            --primary-light: #4895ef;
+            --dark: #212121;
+            --dark-light: #303030;
+            --light: #f8f9fa;
+            --gray: #e9ecef;
+            --success: #4cc9f0;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
         }
 
-        h1 {
-            font-size: 1.5rem;
-            margin: 0 0 10px;
-            color: #555;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        header {
             text-align: center;
+            margin-bottom: 3rem;
+            padding: 1rem;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--success) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .subtitle {
+            color: var(--dark-light);
+            font-weight: 400;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
-        .card button {
-            cursor: pointer;
-            font-size: 16px;
-            padding: 10px 15px;
-            margin: 10px 0;
-            background-color: #007BFF;
+        .card-banner {
+            background: linear-gradient(45deg, var(--primary) 0%, var(--success) 100%);
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-number {
+            font-size: 3rem;
+            font-weight: bold;
             color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--light);
+            color: var(--dark);
             border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .card button:hover {
-            background-color: #0056b3;
-        }
-
-        .card a {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
             text-decoration: none;
+            font-size: 0.9rem;
         }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.2rem;
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--gray);
+            color: var(--dark);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            color: var(--dark-light);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
             }
 
-            .card button {
-                font-size: 14px;
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .card-banner {
+                height: 100px;
+            }
+
+            .card-content {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .btn {
+                padding: 0.7rem 1.2rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <h1>Programs</h1>
+    <header>
+        <h1 class="title">Program Portfolio</h1>
+        <p class="subtitle">A collection of web development programs and their source code</p>
+    </header>
+
     <div class="container">
-        <div class="card">
-            <h1>Program 1</h1>
-            <a href="Program 1/index.html"><button>Program 1 Website</button></a>
-            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%201/index.html">
-                <button>Program 1 Code</button>
-            </a>
-        </div>
-        <div class="card">
-            <h1>Program 2</h1>
-            <a href="Program 2/index.html"><button>Program 2 Website</button></a>
-            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%202/index.html">
-                <button>Program 2 Code</button>
-            </a>
-        </div>
-        <div class="card">
-            <h1>Program 3</h1>
-            <a href="Program 3/index.html"><button>Program 3 Website</button></a>
-            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%203/index.html">
-                <button>Program 3 Code</button>
-            </a>
-        </div>
-        <div class="card">
-            <h1>Program 4</h1>
-            <a href="Program 4/index.html"><button>Program 4 Website</button></a>
-            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%204/index.html">
-                <button>Program 4 Code</button>
-            </a>
-        </div>
-        <div class="card">
-            <h1>Program 5</h1>
-            <a href="Program 5/index.html"><button>Program 5 Website</button></a>
-            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%205/index.html">
-                <button>Program 5 Code</button>
-            </a>
-        </div>
-        <div class="card">
-            <h1>Program 6</h1>
-            <a href="Program 6/index.html"><button>Program 6 Website</button></a>
-            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%206/index.html">
-                <button>Program 6 Code</button>
-            </a>
-        </div>
-        <div class="card">
-            <h1>Program 7</h1>
-            <a href="Program 7/index.html"><button>Program 7 Website</button></a>
-            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%207/index.html">
-                <button>Program 7 Code</button>
-            </a>
-        </div>
-        <div class="card">
-            <h1>Program 8</h1>
-            <a href="Program 8/index.html"><button>Program 8 Website</button></a>
-            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%208/index.html">
-                <button>Program 8 Code</button>
-            </a>
-        </div>
-        <div class="card">
-            <h1>Program 9</h1>
-            <a href="Program 9/index.html"><button>Program 9 Website</button></a>
-            <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%209/index.html">
-                <button>Program 9 Code</button>
-            </a>
+        <div class="grid">
+            <!-- Program 1 -->
+            <div class="card">
+                <div class="card-banner">
+                    <div class="card-number">1</div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Program 1</h2>
+                    <div class="btn-group">
+                        <a href="Program 1/index.html" class="btn btn-primary">
+                            <i class="fas fa-globe"></i> View Website
+                        </a>
+                        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%201/index.html" class="btn btn-secondary">
+                            <i class="fas fa-code"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 2 -->
+            <div class="card">
+                <div class="card-banner">
+                    <div class="card-number">2</div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Program 2</h2>
+                    <div class="btn-group">
+                        <a href="Program 2/index.html" class="btn btn-primary">
+                            <i class="fas fa-globe"></i> View Website
+                        </a>
+                        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%202/index.html" class="btn btn-secondary">
+                            <i class="fas fa-code"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 3 -->
+            <div class="card">
+                <div class="card-banner">
+                    <div class="card-number">3</div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Program 3</h2>
+                    <div class="btn-group">
+                        <a href="Program 3/index.html" class="btn btn-primary">
+                            <i class="fas fa-globe"></i> View Website
+                        </a>
+                        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%203/index.html" class="btn btn-secondary">
+                            <i class="fas fa-code"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 4 -->
+            <div class="card">
+                <div class="card-banner">
+                    <div class="card-number">4</div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Program 4</h2>
+                    <div class="btn-group">
+                        <a href="Program 4/index.html" class="btn btn-primary">
+                            <i class="fas fa-globe"></i> View Website
+                        </a>
+                        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%204/index.html" class="btn btn-secondary">
+                            <i class="fas fa-code"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 5 -->
+            <div class="card">
+                <div class="card-banner">
+                    <div class="card-number">5</div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Program 5</h2>
+                    <div class="btn-group">
+                        <a href="Program 5/index.html" class="btn btn-primary">
+                            <i class="fas fa-globe"></i> View Website
+                        </a>
+                        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%205/index.html" class="btn btn-secondary">
+                            <i class="fas fa-code"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 6 -->
+            <div class="card">
+                <div class="card-banner">
+                    <div class="card-number">6</div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Program 6</h2>
+                    <div class="btn-group">
+                        <a href="Program 6/index.html" class="btn btn-primary">
+                            <i class="fas fa-globe"></i> View Website
+                        </a>
+                        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%206/index.html" class="btn btn-secondary">
+                            <i class="fas fa-code"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 7 -->
+            <div class="card">
+                <div class="card-banner">
+                    <div class="card-number">7</div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Program 7</h2>
+                    <div class="btn-group">
+                        <a href="Program 7/index.html" class="btn btn-primary">
+                            <i class="fas fa-globe"></i> View Website
+                        </a>
+                        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%207/index.html" class="btn btn-secondary">
+                            <i class="fas fa-code"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 8 -->
+            <div class="card">
+                <div class="card-banner">
+                    <div class="card-number">8</div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Program 8</h2>
+                    <div class="btn-group">
+                        <a href="Program 8/index.html" class="btn btn-primary">
+                            <i class="fas fa-globe"></i> View Website
+                        </a>
+                        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%208/index.html" class="btn btn-secondary">
+                            <i class="fas fa-code"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 9 -->
+            <div class="card">
+                <div class="card-banner">
+                    <div class="card-number">9</div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Program 9</h2>
+                    <div class="btn-group">
+                        <a href="Program 9/index.html" class="btn btn-primary">
+                            <i class="fas fa-globe"></i> View Website
+                        </a>
+                        <a href="https://github.com/poovarasansivakumar2003/webdesign/blob/main/Program%209/index.html" class="btn btn-secondary">
+                            <i class="fas fa-code"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2025 Program Portfolio. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>
